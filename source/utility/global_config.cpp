@@ -31,10 +31,13 @@ namespace global_config
 
 	void init(std::filesystem::path config_path)
 	{
+		auto lock = std::unique_lock(private__.mutex);
+		
 		if (private__.initialised)
 			throw std::exception("global config has already been initialised");
 
 		private__.global_conf = nlohmann::json::parse( std::ifstream(config_path) );
+		private__.initialised = true;
 	}
 
 	nlohmann::json& get()

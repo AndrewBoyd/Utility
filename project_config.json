@@ -1,5 +1,6 @@
 {
 	"dependencies": [
+		"ThirdParty/libgit2"
 	],
 	"nuget": [
 		"fmt|6.1.2",

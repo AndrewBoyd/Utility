@@ -36,13 +36,16 @@ namespace guid
 
     Guid generateGuid() 
     {
-        auto internal = fmt::format("{}-{}-{}-{}-{}",
+        return fmt::format("{}{}{}", "{", generateGuid_NoBrackets(), "}");
+    }
+
+	Guid generateGuid_NoBrackets()
+	{
+		return fmt::format("{}-{}-{}-{}-{}",
             generateHex(4),
             generateHex(2),
             generateHex(2),
             generateHex(2),
             generateHex(6));
-
-        return fmt::format("{}{}{}", "{", internal, "}");
-    }
+	}
 }
