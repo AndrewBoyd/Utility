@@ -1,7 +1,6 @@
 #pragma once
 #include "macro_magic.h"
 
-
 #define REFLECTAGA_TEMPLATE_HEADER template <typename reflect_action_t>
 #define RELFECTAGA_FUNCTION_DECLERATION( TYPENAME ) void reflectAction( reflect_action_t & action, TYPENAME & type )
 #define REFLECTAGA_ACTION_LINE( X ) action(type.X, #X); 

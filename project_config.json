@@ -4,6 +4,7 @@
 	],
 	"nuget": [
 		"fmt|6.1.2",
-		"nlohmann.json|3.7.3"
+		"nlohmann.json|3.7.3",
+		"cereal|1.0.0"
 	]
 }
