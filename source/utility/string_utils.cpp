@@ -33,4 +33,20 @@ namespace string_utils
 
 		return result;
 	}
+
+
+	std::string u8_to_ascii(std::u8string string)
+	{
+		auto view = std::u8string_view(string);
+		auto casted = reinterpret_cast<std::string_view&>(view);
+		return std::string(casted);
+	}
+
+	std::u8string ascii_to_u8(std::string string)
+	{
+		auto view = std::string_view(string);
+		auto casted = reinterpret_cast<std::u8string_view&>(view);
+		return std::u8string(casted);
+	}
+
 }

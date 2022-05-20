@@ -6,7 +6,7 @@
 namespace {
 	struct
 	{
-		bool initialised;
+		bool initialised = false;
 		std::mutex mutex;
 		nlohmann::json global_conf;
 	} private__;
