@@ -1,6 +1,7 @@
 #pragma once
 #include <memory>
 #include <functional>
+#include <type_traits>
 
 //#define DO_LOG_VALUE_PTR
 #ifdef DO_LOG_VALUE_PTR
@@ -26,7 +27,8 @@ namespace stdish
 			LOG_VALUE_PTR("Constructing Empty");
 		}
 
-		template<typename derived_t>
+		template<typename derived_t, 
+			typename = std::enable_if_t<std::is_base_of<value_t, derived_t>::value> >
 		value_ptr(derived_t value)
 		{
 			static_assert(std::is_base_of<value_t, derived_t>::value, "derived_t must be derived from value_t");
@@ -45,7 +47,7 @@ namespace stdish
 		}
 
 		template <>
-		value_ptr(stored_type value)
+		explicit value_ptr(stored_type value)
 		{
 			LOG_VALUE_PTR("Construcing From Base");
 
